@@ -201,7 +201,7 @@ function addPhrases() {
     sprite.position.set(Math.cos(angle) * radiusVar, yVar, Math.sin(angle) * radiusVar);
     
     const scaleFactor = isSpecial ? 1.4 : 0.8 + Math.random() * 0.4;
-    sprite.scale.set(scaleFactor, scaleFactor * 0.25, 1);
+    sprite.scale.set(scaleFactor * 2, scaleFactor * 0.5, 1);
     
     phrasesGroup.add(sprite);
   });
