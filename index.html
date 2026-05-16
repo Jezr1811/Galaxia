@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>La Galaxia de Maricela ✨</title>
   <style>
-<<<<<<< HEAD
     :root {
       color-scheme: dark;
       --pink: #ff69b4;
@@ -30,18 +29,12 @@
       inset: 0;
     }
 
-=======
-    body { margin: 0; background: #000; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
-    #canvas-container { position: fixed; inset: 0; }
-    
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
     .center-text {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-<<<<<<< HEAD
       font-size: clamp(1.25rem, 4vw, 1.85rem);
       font-weight: 800;
       text-align: center;
@@ -152,30 +145,6 @@
         font-size: 16px;
       }
     }
-=======
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-align: center;
-      pointer-events: none; 
-      text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff1493;
-      z-index: 50;
-      transition: opacity 1s;
-      width: 85%;
-    }
-
-    .hud {
-      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-      background: rgba(10, 10, 20, 0.7); backdrop-filter: blur(10px);
-      padding: 12px 20px; border-radius: 50px; border: 1px solid rgba(255,105,180,0.3);
-      display: flex; gap: 12px; align-items: center; color: white; z-index: 100;
-    }
-    button {
-      background: #ff69b4; border: none; padding: 8px 16px; border-radius: 20px;
-      color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
-    }
-    button:hover { background: #ff1493; transform: scale(1.05); }
-    input[type=file] { display: none; }
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -183,7 +152,6 @@
 <body>
 
 <div id="dynamic-center-text" class="center-text">Es tu universo</div>
-<<<<<<< HEAD
 <div id="shapeName">Galaxy</div>
 
 <div class="hud">
@@ -194,24 +162,13 @@
   <audio id="audio" loop preload="auto">
     <source src="Donde Nadie Pueda Ir.mp3" type="audio/mpeg">
   </audio>
-=======
-
-<div class="hud">
-  <span style="font-size:14px">✨ Galaxia para ti</span>
-  <button id="playBtn">▶ Iniciar</button>
-  <button id="pickBtn">🎵</button> <input type="file" id="pickFile" accept="audio/*">
-  <audio id="audio" loop><source src="Donde Nadie Pueda Ir.mp3" type="audio/mpeg"></audio>
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
 </div>
 
 <div id="canvas-container"></div>
 
 <script>
 let scene, camera, renderer, controls, points, phrasesGroup;
-<<<<<<< HEAD
 let listener, audioSource, analyser, frequencyData;
-=======
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
 
 const params = {
   count: 65000,
@@ -220,7 +177,6 @@ const params = {
   branches: 3,
   spin: 1.3,
   randomness: 0.25,
-<<<<<<< HEAD
   morphDuration: 2.65,
   colorInside: "#1e90ff",
   colorOutside: "#4b0082",
@@ -258,11 +214,11 @@ const shapeFactories = {
 // Conecta aquí tus canciones reales. Cada entrada define qué forma activa.
 // Si aún no tienes 5 archivos, puedes dejar el mismo src y probar el morphing igual.
 const songs = [
-  { title: "✨ Galaxia para ti", src: "Donde Nadie Pueda Ir.mp3", shapeId: 0 },
-  { title: "💖 Corazón para Mari", src: "Donde Nadie Pueda Ir.mp3", shapeId: 1 },
-  { title: "🪐 Toroide infinito", src: "Donde Nadie Pueda Ir.mp3", shapeId: 2 },
-  { title: "🔷 Prisma holográfico", src: "Donde Nadie Pueda Ir.mp3", shapeId: 3 },
-  { title: "🔺 Pirámide energética", src: "Donde Nadie Pueda Ir.mp3", shapeId: 4 }
+  { title: "✨ Galaxia para ti", src: "Galaxia-master/Canciones/Donde Nadie Pueda Ir.mp3", shapeId: 0 },
+  { title: "💖 Corazón para Mari", src: "Galaxia-master/Canciones/Contigo - Los Panchos - Letra.mp3", shapeId: 1 },
+  { title: "🪐 Toroide infinito", src: "Galaxia-master/Canciones/Josean Log - Doma (Lyric Video).mp3", shapeId: 2 },
+  { title: "🔷 Prisma holográfico", src: "Galaxia-master/Canciones/Tengo Ganas - Andres Cepeda (Cover Audio).mp3", shapeId: 3 },
+  { title: "🔺 Pirámide energética", src: "Galaxia-master/Canciones/Gotye feat. Kimbra - Somebody That I Used To Know (Extended Remix).mp3", shapeId: 4 }
 ];
 
 const phrases = [
@@ -300,192 +256,6 @@ const phrases = [
   "Eres mi vitamina diaria 💊", "Tu risa es mi melodía preferida 🎵", "Contigo todo es más dulce 🍭"
 ];
 
-=======
-  colorInside: '#1e90ff', 
-  colorOutside: '#4b0082'
-};
-
-const phrases = [
-  'la pequeña gigante de mi corazón ❤️', 'La chiquita más linda 🐣', 'Tan pequeña y tan inmensa ✨',
-  'Lo bueno viene en frasco pequeño 🎁', 'Mi miniatura favorita 🧸', 'Eres mi tamaño ideal 🤗',
-  'Pequeñita, pero eres mi mundo entero 🌎', 'Tu estatura es perfecta para mis abrazos 🤗',
-  'Mi gran amor en versión pequeña 💖', 'Eres mi juguete favorito 🧸', 'Tan pequeña y ya no cabes en mis pensamientos 💭',
-  'Lo más grande de mi vida es alguien pequeñito ✨', 'Eres mi pequeño gran milagro ✨', 'Un tesoro pequeño para cuidar por siempre 💎',
-  'Eres mi punto favorito en el mapa 📍', 'Tan chiquita y me llenas el alma 🌟', 'Mi pequeña dosis de felicidad 💊',
-  'Mi crespa hermosa 🌀', 'Tus ricitos me encantan ✨', 'Crespa divina 😍', 'Tus ricitos son como estrellas ✨',
-  'Tu sonrisa es mi motor 😊', 'Esa carita tan linda. 🫠', 'Tus ojos brillan más que estas estrellas ✨',
-  'Ojitos que me enamoran 😍', 'Tan linda que no es real 💭', 'Eres arte 🎨', 'Amo tus crespos rebeldes 🌀',
-  'Cada ricitos tuyo es una constelación 🌌', 'Tus rulos tienen mi corazón enredado 🧶', 'La dueña de los ricitos más bellos 👑',
-  'Tu pelo tiene vida propia y me encanta 🌀', 'Esa mirada que me desarma 👀', 'Perfección en cada curva de tu pelo ✨',
-  'Eres mi obra maestra favorita 🖼️', 'Tu carita es mi paisaje preferido 🌄', 'Tus labios, mi perdición 💋',
-  'Mi amor ❤️', 'Mi cielo 🌌', 'Eres mi todo ✨', 'Mi vida 💖', 'Te quiero infinito ♾️', 
-  'Mi tesoro 💎', 'Siempre tú', 'Anhelo tu sonrisa 😊', 'Gracias por estar 🙏', 
-  'Me haces el más feliz 💖', 'Contigo el mundo es mejor 🌎', 'Mi lugar favorito es contigo 🏠', 
-  'Mi razón de sonreír 😊', 'Mi calma en el caos 🌊', 'Mi lugar seguro 🫶', 'Eres mi paz 🕊️',
-  'Eres un sueño hecho realidad 🌙', 'Eres perfecta para mí 💘', 'Mi felicidad eres tú 😄',
-  'Mi corazón te eligió 💓', 'Eres lo más bonito que tengo 🌷', 'Inseparables hoy y siempre 💞',
-  'Mi hogar son tus brazos 🏠', 'Elegirte fue mi mejor acierto ✅', 'Te amo más de lo que las palabras dicen 🗣️',
-  'Eres mi "por siempre" ♾️', 'Mi vida es más linda si estás tú 🌸', 'Eres mi debilidad favorita 🫠',
-  'Cada segundo contigo es un regalo 🎁', 'Eres mi pensamiento constante 💭',
-  'Orbitando en tu amor 🪐', 'Mi universo eres tú 🌌', 'Luz de mi vida 🕯️', 
-  'Más allá del infinito 🚀', 'Un millón de galaxias y te elijo a ti ✨', 'Nuestra propia galaxia 💫',
-  'Mi estrella favorita ⭐', 'Eres magia pura ✨', 'Mi pedacito de cielo ☁️', 
-  'Eres mi destino 💫', 'Mi sueño más lindo 🌙', 'Tú haces que mi mundo gire 🌀',
-  'Nuestra conexión es de otro planeta 👽', 'Brillas más que el sol ☀️', 'Mi eclipse favorito 🌑',
-  'Eres el centro de mi gravedad 🌌', 'Un viaje a las estrellas a tu lado 🚀', 'Nuestra historia está escrita en el cielo ✍️',
-  'Tacita de cafe con leche ☕️', 'Guapa 😍', 'Reinita 👑', 'Dulzura infinita 🍯', 
-  'Mi alegría diaria ☀️', 'Mi todo bonito 💖', 'Mi casualidad favorita 🍀', 
-  'Mi abrazo favorito 🤗', 'Eres mi canción favorita 🎶', 'Eres mi notificación preferida 📱',
-  'Amo nuestros momentos juntos ⏳', 'Eres mi sol en días nublados ☁️', 'Mi postre favorito 🍰',
-  'Eres mi vitamina diaria 💊', 'Tu risa es mi melodía preferida 🎵', 'Contigo todo es más dulce 🍭',
-];
-
-function init() {
-  scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-  camera.position.set(4, 3, 5);
-
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-
-  generateGalaxy();
-  addPhrases();
-  animate();
-}
-
-function generateGalaxy() {
-  const geometry = new THREE.BufferGeometry();
-  const positions = new Float32Array(params.count * 3);
-  const colors = new Float32Array(params.count * 3);
-
-  const colorInside = new THREE.Color(params.colorInside);
-  const colorOutside = new THREE.Color(params.colorOutside);
-
-  for(let i = 0; i < params.count; i++) {
-    const i3 = i * 3;
-    const radius = Math.random() * params.radius;
-    const branchAngle = (i % params.branches) / params.branches * Math.PI * 2;
-    const spinAngle = radius * params.spin;
-
-    const randomX = Math.pow(Math.random(), 3) * (Math.random() < 0.5 ? 1 : -1) * params.randomness * radius;
-    const randomY = Math.pow(Math.random(), 3) * (Math.random() < 0.5 ? 1 : -1) * params.randomness * radius;
-    const randomZ = Math.pow(Math.random(), 3) * (Math.random() < 0.5 ? 1 : -1) * params.randomness * radius;
-
-    positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-    positions[i3 + 1] = randomY;
-    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
-
-    const mixedColor = colorInside.clone().lerp(colorOutside, radius / params.radius);
-    colors[i3] = mixedColor.r;
-    colors[i3 + 1] = mixedColor.g;
-    colors[i3 + 2] = mixedColor.b;
-  }
-
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-  const material = new THREE.PointsMaterial({
-    size: params.size,
-    sizeAttenuation: true,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    vertexColors: true
-  });
-
-  points = new THREE.Points(geometry, material);
-  scene.add(points);
-}
-
-function addPhrases() {
-  phrasesGroup = new THREE.Group();
-  phrases.forEach((text, i) => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = 1024; 
-    canvas.height = 256; 
-    
-    const isSpecial = text.includes('crespa') || text.includes('pequeña') || text.includes('ricitos');
-    
-    ctx.font = isSpecial ? 'Bold 42px Arial' : '32px Arial';
-
-    ctx.fillStyle = '#ffffff';
-    
-    ctx.textAlign = 'center';
-    
-    ctx.shadowColor = 'rgba(138, 43, 226, 1)'; 
-    ctx.shadowBlur = 12;
-    
-
-    ctx.fillText(text, 512, 128); 
-
-    const texture = new THREE.CanvasTexture(canvas);
-    const spriteMaterial = new THREE.SpriteMaterial({ 
-        map: texture, 
-        transparent: true, 
-        blending: THREE.AdditiveBlending 
-    });
-    const sprite = new THREE.Sprite(spriteMaterial);
-    
-    const angle = (i / phrases.length) * Math.PI * 2;
-    const radiusVar = 1.2 + Math.random() * 3.8;
-    const yVar = (Math.random() - 0.5) * 2;
-    
-    sprite.position.set(Math.cos(angle) * radiusVar, yVar, Math.sin(angle) * radiusVar);
-    
-    const scaleFactor = isSpecial ? 1.4 : 0.8 + Math.random() * 0.4;
-    sprite.scale.set(scaleFactor * 2, scaleFactor * 0.5, 1);
-    
-    phrasesGroup.add(sprite);
-  });
-  scene.add(phrasesGroup);
-}
-function animate() {
-  requestAnimationFrame(animate);
-  const time = Date.now() * 0.002;
-
-  points.rotation.y += 0.0006;
-  phrasesGroup.rotation.y += 0.0012;
-  controls.update();
-  renderer.render(scene, camera);
-  
-  // Latido del texto dinámico
-  const pulseScale = 1 + Math.sin(time) * 0.1;
-  const centerTextElement = document.getElementById('dynamic-center-text');
-  if(centerTextElement) {
-    centerTextElement.style.transform = `translate(-50%, -50%) scale(${pulseScale})`;
-  }
-}
-
-const audio = document.getElementById('audio');
-const playBtn = document.getElementById('playBtn');
-playBtn.onclick = () => {
-  if (audio.paused) { audio.play(); playBtn.textContent = '⏸ Pausar'; }
-  else { audio.pause(); playBtn.textContent = '▶ Iniciar'; }
-};
-
-document.getElementById('pickBtn').onclick = () => document.getElementById('pickFile').click();
-document.getElementById('pickFile').onchange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    audio.src = URL.createObjectURL(file);
-    audio.play();
-    playBtn.textContent = '⏸ Pausar';
-  }
-};
-
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
 const centerPhrases = [
   "Para mi pequeña gigante 💖",
   "Maricela ✨",
@@ -496,7 +266,6 @@ const centerPhrases = [
   "Mi crespa hermosa 🌀"
 ];
 
-<<<<<<< HEAD
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("playBtn");
 const pickBtn = document.getElementById("pickBtn");
@@ -911,10 +680,6 @@ function updateAudioReactiveEffects(elapsedTime, deltaTime) {
     updateHeartAudioMotion(positions, elapsedTime, bass, mid, high);
   } else if (activeShape === 2) {
     updateTorusAudioMotion(positions, elapsedTime, bass, mid, high);
-  } else if (activeShape === 3) {
-    updatePrismAudioMotion(positions, elapsedTime, bass, mid, high, deltaTime);
-  } else if (activeShape === 4) {
-    updatePyramidAudioMotion(positions, elapsedTime, bass, mid, high, deltaTime);
   }
 
   positionAttribute.needsUpdate = true;
@@ -963,12 +728,12 @@ function updateGalaxyAudioMotion(positions, elapsedTime, bass, mid, high, deltaT
 }
 
 function updateHeartAudioMotion(positions, elapsedTime, bass, mid, high) {
-  const heartbeat = Math.pow(Math.max(0, bass), 1.35);
-  const pulse = 1 + heartbeat * 0.22 + Math.sin(elapsedTime * 2.4) * 0.012;
-  const breathe = 0.012 + bass * 0.035;
+  const heartbeat = Math.pow(Math.max(0, bass), 1.45);
+  const pulse = 1 + heartbeat * 0.34 + Math.sin(elapsedTime * 3.0) * 0.018;
+  const breathe = 0.025 + bass * 0.08;
 
-  points.rotation.y = Math.sin(elapsedTime * 0.2) * 0.035;
-  points.rotation.x = Math.sin(elapsedTime * 0.18) * 0.025;
+  points.rotation.y = Math.sin(elapsedTime * 0.35) * 0.28;
+  points.rotation.x = Math.sin(elapsedTime * 0.2) * 0.08;
   points.rotation.z = 0;
 
   for (let i = 0; i < params.count; i++) {
@@ -979,11 +744,10 @@ function updateHeartAudioMotion(positions, elapsedTime, bass, mid, high) {
     const sz = currentPositions[i3 + 2];
     const seed = particleSeeds[i4];
     const organic = Math.sin(elapsedTime * 2.4 + seed * 19.0) * breathe;
-    const centerBoost = 1 - Math.min(1, Math.sqrt(sx * sx + sy * sy) / 2.9);
 
-    positions[i3] = sx * (pulse + organic * 0.35);
-    positions[i3 + 1] = sy * (pulse + organic * 0.28) + heartbeat * centerBoost * 0.045;
-    positions[i3 + 2] = sz + Math.cos(elapsedTime * 2.0 + seed * 12.0) * (0.006 + bass * 0.012);
+    positions[i3] = sx * (pulse + organic * 0.45);
+    positions[i3 + 1] = sy * (pulse + organic * 0.3) + heartbeat * 0.08;
+    positions[i3 + 2] = sz * (1 + heartbeat * 0.55) + Math.cos(elapsedTime * 2.0 + seed * 12.0) * (0.015 + mid * 0.04);
   }
 }
 
@@ -1010,58 +774,6 @@ function updateTorusAudioMotion(positions, elapsedTime, bass, mid, high) {
     positions[i3] = sx * scale;
     positions[i3 + 1] = sy * (1 + wave * 1.4 + mid * 0.1);
     positions[i3 + 2] = sz * scale;
-  }
-}
-
-function updatePrismAudioMotion(positions, elapsedTime, bass, mid, high, deltaTime) {
-  const energy = mid * 0.12 + high * 0.16;
-  const faceExpansion = 1 + energy;
-  const angularWave = elapsedTime * (2.0 + high * 3.0);
-
-  points.rotation.y += deltaTime * (0.18 + high * 0.45);
-  points.rotation.x = Math.sin(elapsedTime * 0.24) * 0.28;
-  points.rotation.z = Math.cos(elapsedTime * 0.18) * 0.08;
-
-  for (let i = 0; i < params.count; i++) {
-    const i3 = i * 3;
-    const i4 = i * 4;
-    const sx = currentPositions[i3];
-    const sy = currentPositions[i3 + 1];
-    const sz = currentPositions[i3 + 2];
-    const seedA = particleSeeds[i4];
-    const seedB = particleSeeds[i4 + 1];
-    const wave = Math.sin(angularWave + seedA * Math.PI * 12.0) * (0.025 + high * 0.08);
-    const verticalSheen = Math.cos(elapsedTime * 3.0 + seedB * 9.0) * (0.01 + mid * 0.035);
-
-    positions[i3] = sx * (faceExpansion + wave);
-    positions[i3 + 1] = sy * (1 + energy * 0.45) + verticalSheen;
-    positions[i3 + 2] = sz * (faceExpansion - wave * 0.35);
-  }
-}
-
-function updatePyramidAudioMotion(positions, elapsedTime, bass, mid, high, deltaTime) {
-  const bassHit = Math.pow(Math.max(0, bass), 1.25);
-  const radialPulse = 1 + bassHit * 0.18 + mid * 0.035;
-  const verticalPulse = 1 + bassHit * 0.28;
-  const auraSpeed = elapsedTime * (2.4 + bassHit * 4.0);
-
-  points.rotation.y += deltaTime * (0.1 + bassHit * 0.22);
-  points.rotation.x = Math.sin(elapsedTime * 0.16) * 0.22;
-  points.rotation.z = Math.sin(elapsedTime * 0.12) * 0.05;
-
-  for (let i = 0; i < params.count; i++) {
-    const i3 = i * 3;
-    const i4 = i * 4;
-    const sx = currentPositions[i3];
-    const sy = currentPositions[i3 + 1];
-    const sz = currentPositions[i3 + 2];
-    const seedA = particleSeeds[i4];
-    const seedB = particleSeeds[i4 + 1];
-    const tremor = Math.sin(auraSpeed + seedA * 18.0 + seedB * 5.0) * (0.018 + bassHit * 0.075);
-
-    positions[i3] = sx * (radialPulse + tremor);
-    positions[i3 + 1] = sy * verticalPulse + tremor * 0.65;
-    positions[i3 + 2] = sz * (radialPulse + tremor);
   }
 }
 
@@ -1250,26 +962,10 @@ Funciones existentes modificadas:
   Ahora la geometría se crea una sola vez con BufferGeometry, Float32Array y DynamicDrawUsage.
 - animate() fue refactorizada para separar morphParticles(), updateAudioReactiveEffects(),
   controles, frases y render.
-- createHeartShape() fue rediseñada por completo: ya no genera volumen 3D, ahora crea
-  una silueta frontal 2D, compacta y rellena usando Filled Particle Sampling.
 - El botón pickBtn ya no abre inmediatamente el selector de archivo: ahora cambia canción,
   actualiza audio y dispara el morphing. Doble clic en ese mismo botón abre el selector local.
 - El audio HTML se conectó a THREE.AudioAnalyser mediante THREE.AudioListener y
   THREE.Audio.setMediaElementSource(audio).
-
-Nuevas formas agregadas:
-- createPrismShape(): prisma hexagonal 3D. Mezcla sampling de caras, aristas y vértices.
-  Matemáticamente usa dos tapas paralelas y seis lados definidos por ángulos en círculo.
-- createPyramidShape(): pirámide de base cuadrada. Usa altura normalizada, sección por
-  altura y sampling de caras/aristas para crear una estructura sólida con profundidad.
-
-Cómo funciona el relleno del corazón:
-- Se calcula un punto del borde con:
-  x = 16 sin^3(t)
-  y = 13 cos(t) - 5 cos(2t) - 2 cos(3t) - cos(4t)
-- Cada partícula interpola ese borde hacia un centro visual con sqrt(seedB).
-- sqrt(seedB) evita que todo se acumule demasiado en el centro y mejora la cobertura visual.
-- Z queda casi plano: solo una variación mínima para evitar rigidez sin volverlo 3D.
 
 Nuevas variables de estado:
 - currentShape: id de la forma visual actualmente estable.
@@ -1282,7 +978,7 @@ Nuevas variables de estado:
 - morphStartPositions / morphTargetPositions: buffers reutilizables para LERP.
 - currentColors / morphStartColors / morphTargetColors: buffers reutilizables para
   transicionar paletas sin recrear materiales.
-- shapePositions: mapa con posiciones precalculadas para galaxy, heart, torus, prism y pyramid.
+- shapePositions: mapa con posiciones precalculadas para galaxy, heart y torus.
 - shapeColors: mapa con colores precalculados por forma.
 - audioBands: bandas bass, mid, high y overall calculadas desde FFT.
 
@@ -1294,8 +990,6 @@ Cómo conectar tu array actual de canciones:
   0 = galaxy
   1 = heart
   2 = torus
-  3 = prism
-  4 = pyramid
 
 Cómo conectar AudioAnalyser y FFT:
 - setupAudioAnalyser() toma el elemento <audio id="audio"> existente.
@@ -1312,41 +1006,16 @@ Cómo activar manualmente cambio de canción y morphing:
 - loadSong(1, true) carga la canción 2, reproduce y activa su forma.
 - startMorph(1) activa manualmente el corazón sin cambiar audio.
 - startMorph(2) activa manualmente el toroide sin cambiar audio.
-- startMorph(3) activa manualmente el prisma sin cambiar audio.
-- startMorph(4) activa manualmente la pirámide sin cambiar audio.
 
 Cómo agregar formas futuras:
 - Registra el nombre:
-  shapeMap[5] = "lorenz";
+  shapeMap[3] = "lorenz";
 - Registra la fábrica:
-  shapeFactories[5] = createLorenzShape;
+  shapeFactories[3] = createLorenzShape;
 - Crea una función:
   function createLorenzShape(targetArray, colorsArray) { ... }
 - Dentro usa targetArray[i3], targetArray[i3 + 1], targetArray[i3 + 2].
 - Evita crear THREE.Vector3 u objetos dentro del render loop.
-- Para reactividad FFT, agrega una rama en updateAudioReactiveEffects() y crea
-  updateLorenzAudioMotion(positions, elapsedTime, bass, mid, high, deltaTime).
 -->
 </body>
 </html>
-=======
-let phraseIndex = 0;
-function updateCenterText() {
-  const centerTextElement = document.getElementById('dynamic-center-text');
-  if(centerTextElement) {
-    centerTextElement.style.opacity = 0;
-    setTimeout(() => {
-      phraseIndex = (phraseIndex + 1) % centerPhrases.length;
-      centerTextElement.textContent = centerPhrases[phraseIndex];
-      centerTextElement.style.opacity = 0.8;
-    }, 1000);
-  }
-}
-
-setInterval(updateCenterText, 5000);
-
-init();
-</script>
-</body>
-</html>
->>>>>>> 6ba7b3bd0edace1da700284a58641e59ad5ce2b9
